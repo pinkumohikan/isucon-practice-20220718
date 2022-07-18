@@ -19,7 +19,7 @@ CREATE TABLE isuumo.estate
     features    VARCHAR(64)         NOT NULL,
     popularity  INTEGER             NOT NULL
 );
-alter table isuumo.estate add column estate_point point as (POINT(latitude,longitude)) stored;
+alter table isuumo.estate add column estate_point point as (POINT(latitude,longitude)) stored NOT NULL;
 CREATE SPATIAL INDEX idx_estate_point ON isuumo.estate (estate_point);
 
 CREATE INDEX idx_estate_popularity_id ON isuumo.estate(popularity DESC,id);
