@@ -738,14 +738,21 @@ func searchEstates(c echo.Context) error {
 			c.Echo().Logger.Infof("rentRangeID invalid, %v : %v", c.QueryParam("rentRangeId"), err)
 			return c.NoContent(http.StatusBadRequest)
 		}
-
-		if estateRent.Min != -1 {
-			conditions = append(conditions, "rent >= ?")
-			params = append(params, estateRent.Min)
-		}
+		// rent_id = CASE WHEN rent < 50000 THEN 0 WHEN rent < 100000 THEN 1 WHEN rent < 150000 THEN 2 ELSE 3 END
 		if estateRent.Max != -1 {
-			conditions = append(conditions, "rent < ?")
-			params = append(params, estateRent.Max)
+			var rentId int64
+			switch {
+			case estateRent.Max < 50000:
+				rentId = 0
+			case estateRent.Max < 100000:
+				rentId = 1
+			case estateRent.Max < 150000:
+				rentId = 2
+			default:
+				rentId = 3
+			}
+			conditions = append(conditions, "rent_id = ?")
+			params = append(params, rentId)
 		}
 	}
 
