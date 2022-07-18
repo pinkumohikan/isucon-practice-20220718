@@ -276,7 +276,9 @@ func main() {
 	if err != nil {
 		e.Logger.Fatalf("DB connection failed : %v", err)
 	}
-	db.SetMaxOpenConns(10)
+	db.SetMaxIdleConns(100)
+	db.SetMaxOpenConns(100)
+	db.SetConnMaxLifetime(120 * time.Second)
 	defer db.Close()
 
 	// Start server
