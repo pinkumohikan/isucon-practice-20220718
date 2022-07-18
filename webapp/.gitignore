@@ -4,3 +4,4 @@ fixture/*
 go/isuumo
 fixture/*
 frontend/node_modules
+fontend/public/*
