@@ -38,6 +38,6 @@ CREATE TABLE isuumo.chair
 );
 
 
-CREATE INDEX idx_chair_price_id ON chair (price,id);
-CREATE INDEX idx_estate_rent_id ON estate (rent,id);
-CREATE INDEX idx_estate_rent ON estate (rent);
+CREATE INDEX idx_chair_price_id ON isuumo.chair (price,id);
+CREATE INDEX idx_estate_rent_id ON isuumo.estate (rent,id);
+CREATE INDEX idx_estate_rent ON isuumo.estate (rent);
