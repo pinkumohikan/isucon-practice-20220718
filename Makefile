@@ -39,4 +39,7 @@ sync-log:
 	rsync -av -e ssh /home/isucon/logs isucon-tool:/home/ubuntu  
 analysis-log:
 	ssh isucon-tool "sh push_github.sh"
+pt-log:
+	ssh isucon-tool "sh start_pt.sh"
 gogo-log: save-log sync-log analysis-log
+gogo-pt:  save-log sync-log pt-log
