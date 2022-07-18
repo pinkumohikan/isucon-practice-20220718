@@ -25,3 +25,6 @@ truncate-logs:
 
 bench:
 	cd bench && ./bench -target-url http://52.194.190.164
+
+kataribe:
+	sudo cat /var/log/nginx/access.log | ./kataribe -conf kataribe.toml
