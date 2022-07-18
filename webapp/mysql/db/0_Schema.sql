@@ -44,3 +44,4 @@ CREATE INDEX idx_estate_rent_id ON isuumo.estate (rent,id);
 
 CREATE INDEX idx_latitude_longitude ON isuumo.estate (latitude, longitude);
 CREATE INDEX idx_door_width_door_height ON isuumo.estate( door_width, door_height);
+CREATE INDEX idx_estate_popularity_id ON isuumo.estate(popularity DESC,id ASC);
