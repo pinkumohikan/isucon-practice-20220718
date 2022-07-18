@@ -825,7 +825,7 @@ func searchRecommendedEstateWithChair(c echo.Context) error {
 	}
 
 	chair := Chair{}
-	query := `SELECT id, name, description, thumbnail, address, latitude, longitude, rent, door_height, door_width, features, popularity FROM chair WHERE id = ?`
+	query := `SELECT * FROM chair WHERE id = ?`
 	err = db.Get(&chair, query, id)
 	if err != nil {
 		if err == sql.ErrNoRows {
