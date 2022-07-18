@@ -39,7 +39,9 @@ CREATE TABLE isuumo.chair
 
 
 CREATE INDEX idx_chair_price_id ON isuumo.chair (price,id);
-CREATE INDEX idx_chair_stock ON isuumo.chair (stock);
 CREATE INDEX idx_chair_stock_price_id ON isuumo.chair (stock, price, id);
 CREATE INDEX idx_estate_rent_id ON isuumo.estate (rent,id);
-CREATE INDEX idx_estate_rent ON isuumo.estate (rent);
+CREATE INDEX idx_estate_rent_id ON isuumo.estate (rent,id);
+
+CREATE INDEX idx_latitude_longitude ON isuumo.estate (latitude, longitude);
+CREATE INDEX idx_door_width_door_height ON isuumo.estate( door_width, door_height);
