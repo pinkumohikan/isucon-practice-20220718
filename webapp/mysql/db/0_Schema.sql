@@ -18,9 +18,9 @@ CREATE TABLE isuumo.estate
     door_width  INTEGER             NOT NULL,
     features    VARCHAR(64)         NOT NULL,
     popularity  INTEGER             NOT NULL,
-    rent_id INTEGER INVISIBLE GENERATED ALWAYS AS(rent_id = CASE WHEN rent < 50000 THEN 0 WHEN rent < 100000 THEN 1 WHEN rent < 150000 THEN 2 ELSE 3 END),
-    door_height_id INTEGER INVISIBLE GENERATED ALWAYS AS(door_height_id = CASE WHEN door_height < 80 THEN 0 WHEN door_height < 110 THEN 1 WHEN door_height < 150 THEN 2 ELSE 3 END),
-    door_width_id INTEGER INVISIBLE GENERATED ALWAYS AS(door_width_id = CASE WHEN door_width < 80 THEN 0 WHEN door_width < 110 THEN 1 WHEN door_width < 150 THEN 2 ELSE 3 END)
+    rent_id INTEGER GENERATED ALWAYS AS(rent_id = CASE WHEN rent < 50000 THEN 0 WHEN rent < 100000 THEN 1 WHEN rent < 150000 THEN 2 ELSE 3 END),
+    door_height_id INTEGER  GENERATED ALWAYS AS(door_height_id = CASE WHEN door_height < 80 THEN 0 WHEN door_height < 110 THEN 1 WHEN door_height < 150 THEN 2 ELSE 3 END),
+    door_width_id INTEGER  GENERATED ALWAYS AS(door_width_id = CASE WHEN door_width < 80 THEN 0 WHEN door_width < 110 THEN 1 WHEN door_width < 150 THEN 2 ELSE 3 END)
 );
 
 
